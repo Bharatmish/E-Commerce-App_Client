@@ -8,6 +8,9 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix ./client",
+    "client:build": "npm run build --prefix ./client",
+    "copy-build": "copyfiles -u 1 \"client/build/**/*\" .",
+    "build": "npm run client:build && npm run copy-build",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
@@ -29,5 +32,8 @@
     "nodemon": "^3.1.0",
     "react-icons": "^5.0.1",
     "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1"
   }
 }
